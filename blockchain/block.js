@@ -8,6 +8,7 @@ class Block {
         this.hash = hash;
         this.data = data;
     }
+    
     toString() {
         return `Block -
               Timestamp : ${this.timestamp}
