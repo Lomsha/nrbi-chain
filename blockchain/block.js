@@ -1,6 +1,6 @@
 const SHA256 = require('crypto-js/sha256');
 
-const DIFFICULTY = 4;
+const { DIFFICULTY } = require('../config');
 
 class Block {
     constructor(timestamp, lastHash, hash, data, nonce) {
@@ -16,7 +16,7 @@ class Block {
               Timestamp : ${this.timestamp}
               Last Hash : ${this.lastHash.substring(0, 10)}
               Hash      : ${this.hash.substring(0, 10)}
-              Nonce   : ${this.nonce}
+              Nonce     : ${this.nonce}
               Data      : ${this.data}`;
       }
       static genesis() {
@@ -36,10 +36,18 @@ class Block {
 
          return new this(timestamp, lastHash, hash, data, nonce);
 }
+
+        static hash(timestamp, lastHash, data, nonce) {
+          return SHA256(`${timestamp}${lastHash}${data}${nonce}`).toString();
+        }
+
+
     static blockHash(block) {
       const { timestamp, lastHash, data, nonce } = block;
       return Block.hash(timestamp, lastHash, data, nonce);
+      }
     }
-    }
+
+
 
     module.exports = Block;
