@@ -28,7 +28,7 @@ class Transaction {
       console.log(`Amount: ${amount} exceeds balance.`);
       return;
     }
-    
+
 
     const transaction = new this();
 
