@@ -9,6 +9,7 @@ describe('TransactionPool', () => {
     wallet = new Wallet();
     transaction = Transaction.newTransaction(wallet, 'r4nd-4dr355', 30);
     tp.updateOrAddTransaction(transaction);
+    // transaction = wallet.createTransaction('r4nd-4dr355', 30, bc, tp);
   });
 
   it('adds a transaction to the pool', () => {
