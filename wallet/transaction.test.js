@@ -81,7 +81,8 @@ describe('creating a reward transaction', () => {
   });
 
   it(`rewards the miner's wallet`, () => {
-    expect(transaction.outputs.find(output.address === wallet.publicKey).amount)
+
+    expect(transaction.outputs.find(output => output.address === wallet.publicKey).amount)
     .toEqual(MINING_REWARD);
      });
     });
